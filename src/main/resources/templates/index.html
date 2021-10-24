@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Users</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body style="background-image:url(travel.jpg);background-repeat:no-repeat;background-size:cover">
+<div class="container my-2" >
+  <div class="card">
+    <div class="card-body">
+      <div th:switch="${drivers}" class="container my-5">
+        <p class="my-5">
+          <a href="/drivers/signup" class="btn btn-primary"><i
+                  class="fas fa-user-plus ml-2"> Add New Driver</i></a>
+        </p>
+        <div class="col-md-10">
+          <h2 th:case="null">No Drivers yet!</h2>
+          <div th:case="*">
+            <table class="table table-striped table-responsive-md">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="driver : ${drivers}">
+                <td th:text="${driver.name}"></td>
+                <td th:text="${driver.email}"></td>
+                <td th:text="${driver.phoneNo}"></td>
+                <td><a th:href="@{/drivers/edit/{id}(id=${driver.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                <td><a th:href="@{/drivers/delete/{id}(id=${driver.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-2">
+  <div class="card">
+    <div class="card-body">
+      <div th:switch="${travels}" class="container my-5">
+        <p class="my-5">
+          <a href="/travels/signup" class="btn btn-primary"><i
+                  class="fas fa-user-plus ml-2"> Add Travel</i></a>
+        </p>
+        <div class="col-md-10">
+          <h2 th:case="null">No Travels yet!</h2>
+          <div th:case="*">
+            <table class="table table-striped table-responsive-md">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Number Of Members</th>
+                <th>Number Of Days</th>
+                <th>Buy Type</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="addTravel : ${travels}">
+                <td th:text="${addTravel.name}"></td>
+                <td th:text="${addTravel.contactNo}"></td>
+                <td th:text="${addTravel.date}"></td>
+                <td th:text="${addTravel.location}"></td>
+                <td th:text="${addTravel.numberOfMembers}"></td>
+                <td th:text="${addTravel.numberOfDays}"></td>
+                <td th:text="${addTravel.busType}"></td>
+
+                <td><a th:href="@{/travels/edit/{id}(id=${addTravel.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                <td><a th:href="@{/travels/delete/{id}(id=${addTravel.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-2">
+  <div class="card">
+    <div class="card-body">
+      <div th:switch="${buses}" class="container my-5">
+        <p class="my-5">
+          <a href="/buses/signup" class="btn btn-primary"><i
+                  class="fas fa-user-plus ml-2"> Add Bus</i></a>
+        </p>
+        <div class="col-md-10">
+          <h2 th:case="null">No Bus yet!</h2>
+          <div th:case="*">
+            <table class="table table-striped table-responsive-md">
+              <thead>
+              <tr>
+                <th>Bus Name</th>
+                <th>Bus Number</th>
+                <th>Bus Type</th>
+                <th>Description</th>
+                <th>Seats</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="bus : ${buses}">
+                <td th:text="${bus.name}"></td>
+                <td th:text="${bus.number}"></td>
+                <td th:text="${bus.type}"></td>
+                <td th:text="${bus.description}"></td>
+                <td th:text="${bus.seats}"></td>
+                <td><a th:href="@{/buses/edit/{id}(id=${bus.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                <td><a th:href="@{/buses/delete/{id}(id=${bus.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-2">
+  <div class="card">
+    <div class="card-body">
+      <div th:switch="${feedbacks}" class="container my-5">
+        <p class="my-5">
+          <a href="/feedbacks/signup" class="btn btn-primary"><i
+                  class="fas fa-user-plus ml-2"> Add Feedback</i></a>
+        </p>
+        <div class="col-md-10">
+          <h2 th:case="null">No Feedbacks yet!</h2>
+          <div th:case="*">
+            <table class="table table-striped table-responsive-md">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="feedback : ${feedbacks}">
+                <td th:text="${feedback.name}"></td>
+                <td th:text="${feedback.email}"></td>
+                <td th:text="${feedback.description}"></td>
+                <td><a th:href="@{/feedbacks/edit/{id}(id=${feedback.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                <td><a th:href="@{/feedbacks/delete/{id}(id=${feedback.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

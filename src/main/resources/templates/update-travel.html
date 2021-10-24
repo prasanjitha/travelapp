@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Update User</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container my-5">
+  <h3> Update Travel</h3>
+  <div class="card">
+    <div class="card-body">
+      <div class="col-md-8">
+        <form action="#" th:action="@{/travels/update/{id}(id=${addTravel.id})}" th:object="${addTravel}" method="post">
+          <div class="row">
+            <div class="form-group col-md-8">
+              <label for="name" class="col-form-label">Name</label> <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name"> <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+              <label for="contactNo" class="col-form-label">Contact No</label> <input type="text" th:field="*{contactNo}" class="form-control" id="contactNo" placeholder="contactNo"> <span th:if="${#fields.hasErrors('contactNo')}" th:errors="*{contactNo}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+              <label for="date" class="col-form-label">Date</label> <input type="text" th:field="*{date}" class="form-control" id="date" placeholder="date"> <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+              <label for="location" class="col-form-label">Location</label> <input type="text" th:field="*{location}" class="form-control" id="location" placeholder="location"> <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+              <label for="numberOfMembers" class="col-form-label">Number Of Members</label> <input type="text" th:field="*{numberOfMembers}" class="form-control" id="numberOfMembers" placeholder="numberOfMembers"> <span th:if="${#fields.hasErrors('numberOfMembers')}" th:errors="*{numberOfMembers}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+              <label for="numberOfDays" class="col-form-label">Number Of Days</label> <input type="text" th:field="*{numberOfDays}" class="form-control" id="numberOfDays" placeholder="numberOfDays"> <span th:if="${#fields.hasErrors('numberOfDays')}" th:errors="*{numberOfDays}" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+              <label for="busType" class="col-form-label">Bus Type</label> <input type="text" th:field="*{busType}" class="form-control" id="busType" placeholder="busType"> <span th:if="${#fields.hasErrors('busType')}" th:errors="*{busType}" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-8">
+              <input type="submit" class="btn btn-primary" value="Update Travel">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
